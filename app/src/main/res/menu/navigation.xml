@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/rc"
+            android:icon="@drawable/rc"
+            android:title="@string/rc"/>
+
+    <item
+            android:id="@+id/jz"
+            android:icon="@drawable/jz"
+            android:title="@string/jz"/>
+
+    <item
+            android:id="@+id/lc"
+            android:icon="@drawable/lc"
+            android:title="@string/lc"/>
+    <item
+            android:id="@+id/grzx"
+            android:icon="@drawable/gr"
+            android:title="@string/grzx"/>
+
+</menu>

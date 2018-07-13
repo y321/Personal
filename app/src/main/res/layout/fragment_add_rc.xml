@@ -1,0 +1,105 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Activity.AddRcFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="标题"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/title"
+                android:layout_margin="5dp"/>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/title"
+                        android:layout_margin="5dp"
+                        android:id="@+id/place_Rel">
+            <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/place"
+                    android:background="@color/white"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/place_btn"
+                    android:layout_weight="1"
+                    android:layout_alignBottom="@+id/place"
+                    android:layout_alignParentTop="true"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="地点"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/place"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/place_btn"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/place_Rel"
+                        android:id="@+id/time_Rel"
+                        android:layout_margin="5dp">
+            <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/time"
+                    android:background="@color/white"
+                    android:id="@+id/time_btn"
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignBottom="@+id/Car"
+                    android:layout_alignParentTop="true"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="日期"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/Car"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/time_btn"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="开始时间"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/starttime"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@id/Car"
+                    android:layout_toEndOf="@+id/time_btn"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="结束时间"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/endtime"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@id/starttime"
+                    android:layout_alignStart="@+id/starttime"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</FrameLayout>
