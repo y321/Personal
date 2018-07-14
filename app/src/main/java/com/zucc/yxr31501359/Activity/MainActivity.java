@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
                             .replace(R.id.content, rc_home).commit();
                     return true;
                 case R.id.jz:
-
+                    context = MainActivity.this;
+                    SZ_home sz_home = new SZ_home();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.content, sz_home).commit();
 
                     return true;
                 case R.id.lc:

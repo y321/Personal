@@ -39,6 +39,8 @@ public class Rc_home extends Fragment {
     private List<List<RcBean>> child;     //子列表
     private ContactsInfoAdapter adapter;  //数据适配器
     private List<Integer> spotList;
+
+    public static String clientData;
 //    private Context c ;
 //    public Rc_home(Context context){
 //        Context c = context;
@@ -118,6 +120,10 @@ public class Rc_home extends Fragment {
         RcBean rcBean;
         RcService rcService = new RcService(MainActivity.db);
         rcBeans=rcService.AllRc(UserService.users_login);
+        //在末尾加入新建日程条目
+        /*model = new ChildModel();
+        model.setContent("新建日程");
+        childitem.add(model);*/
         return rcBeans;
     }
 
@@ -160,6 +166,7 @@ public class Rc_home extends Fragment {
             public void OnItemClick(Date selectedStartDate,
                                     Date selectedEndDate, Date downDate) {
                 setHeadDate(format.format(downDate));   //头上的日期显示更换
+                clientData = format.format(downDate);
                 String[] ya = getStrings(format.format(downDate));  //获取按下的日期，目的是获取“日”，与mListView的下标对比，得到要显示的位置
                 String[] nowDate = getStrings(calendar.getYearAndmonthAndDate());
                 if(ya[1].equals(nowDate[1])){   //用于限制本页显示灰色的上一月和下一月，点击后不执行以下代码

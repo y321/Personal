@@ -12,10 +12,7 @@ import com.zucc.yxr31501359.entity.RcBean;
 
 import java.util.List;
 
-/**
- * ExpandableList的适配器
- * Created by yang.dong on 2015/10/22.
- */
+
 public class ContactsInfoAdapter extends BaseExpandableListAdapter {
     private List<String> group;           //组列表
     private List<List<RcBean>> child;     //子列表

@@ -3,10 +3,7 @@ package com.zucc.yxr31501359.calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 周枚举类型
- * Created by yang.dong on 2015/10/23.
- */
+
 public enum DateEnum {
     SUN("日" , 7),MON("一" , 1),TUE("二" , 2),WED("三" , 3), THU("四", 4),FRI("五", 5),SAT("六", 6);
     private String value;

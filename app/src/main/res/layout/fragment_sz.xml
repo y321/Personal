@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:id="@+id/layout_calendar"
+            android:layout_width="fill_parent"
+            android:layout_height="190dp"
+            android:visibility="visible"
+            android:elevation="4dp"
+            android:background="@color/white">
+        <RelativeLayout
+                android:id="@+id/Income_cal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+        >
+            <TextView
+                    android:text="本月收入"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Income"
+                    android:layout_marginLeft="30dp"
+                    android:layout_centerVertical="true"/>
+            <TextView
+                    android:text="00.00"
+                    android:textSize="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/Income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Income_m"
+            />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/Ouput_cal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/Income_cal">
+            <TextView
+                    android:text="本月支出"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Ouput"
+                    android:layout_marginLeft="30dp"
+                    android:layout_centerVertical="true"/>
+            <TextView
+                    android:text="00.00"
+                    android:textSize="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/Ouput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Ouput_m"
+                    android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/Data_cal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/Ouput_cal">
+            <TextView
+                    android:text="月份"
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Data"
+                    android:layout_marginLeft="30dp"
+                    android:layout_centerVertical="true"/>
+            <EditText
+                    android:text="00.00"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Data_m"
+                    android:background="@null"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/Data"
+                    android:layout_marginStart="81dp"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <ListView
+            android:id="@+id/sz_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:childDivider="@android:color/transparent"
+            android:background="@color/white"
+            android:groupIndicator="@null"
+            android:drawSelectorOnTop="false" />
+</LinearLayout>

@@ -6,6 +6,7 @@ public class RcBean {
     int rcid ;
     String title ;
     String place ;
+    String rcdata;
     String startTime ;
     String endTime ;
     String repeat ;
@@ -37,6 +38,13 @@ public class RcBean {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+    public String getRcdata() {
+        return rcdata;
+    }
+
+    public void setRcdata(String rcdata) {
+        this.rcdata = rcdata;
     }
 
     public String getStartTime() {

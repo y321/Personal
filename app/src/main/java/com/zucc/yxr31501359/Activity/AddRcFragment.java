@@ -72,8 +72,9 @@ public class AddRcFragment extends Fragment {
                 RcBean rcBean = new RcBean();
                 rcBean.setTitle(titleET.getText().toString());
                 rcBean.setPlace(placeET.getText().toString());
-                rcBean.setStartTime(dataET.getText().toString()+" "+starttimeET.getText().toString());
-                rcBean.setEndTime(dataET.getText().toString()+" "+endtimeET.getText().toString());
+                rcBean.setRcdata(dataET.getText().toString());
+                rcBean.setStartTime(starttimeET.getText().toString());
+                rcBean.setEndTime(endtimeET.getText().toString());
                 rcBean.setRepeat(repeatET.getText().toString());
                 rcBean.setRemindTime("");
                 rcBean.setRemarks(contentET.getText().toString());
@@ -81,6 +82,15 @@ public class AddRcFragment extends Fragment {
                 Log.v("123",rcBean.getStartTime());
                 RcService rcService = new RcService(MainActivity.db);
                 rcService.addRc(rcBean);
+
+                    getFragmentManager()
+                            .beginTransaction()
+                            .addToBackStack(null)  //将当前fragment加入到返回栈中
+                            .replace(R.id.content, new Rc_home()).commit();
+
+
+
+
 
             }
         });

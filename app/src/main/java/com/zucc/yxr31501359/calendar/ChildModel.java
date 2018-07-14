@@ -1,9 +1,5 @@
 package com.zucc.yxr31501359.calendar;
 
-/**
- *
- * Created by yang.dong on 2015/10/22.
- */
 public class ChildModel {
     private String id;
     private String time;
