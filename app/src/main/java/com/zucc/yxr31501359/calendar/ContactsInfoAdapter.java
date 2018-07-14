@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.zucc.yxr31501359.R;
+import com.zucc.yxr31501359.entity.RcBean;
 
 import java.util.List;
 
@@ -17,13 +18,13 @@ import java.util.List;
  */
 public class ContactsInfoAdapter extends BaseExpandableListAdapter {
     private List<String> group;           //组列表
-    private List<List<ChildModel>> child;     //子列表
+    private List<List<RcBean>> child;     //子列表
     private Context context;
     private LayoutInflater mInflater;
     private int nowWeek;   //当前星期几
     private String[] nowDate;    //存储 年 月 日，0代表年，1代表月，2代表日
 
-    public ContactsInfoAdapter(List<String> group, List<List<ChildModel>> child, Context context,String[] nowDate, int nowWeek) {
+    public ContactsInfoAdapter(List<String> group, List<List<RcBean>> child, Context context, String[] nowDate, int nowWeek) {
         this.group = group;
         this.child = child;
         this.context = context;
@@ -110,11 +111,11 @@ public class ContactsInfoAdapter extends BaseExpandableListAdapter {
         }else {
             holder = (ChildViewHolder)view.getTag();
         }
-        List<ChildModel> list = child.get(groupPosition);
+        List<RcBean> list = child.get(groupPosition);
 //        if(list.size() > 0){
-            ChildModel model = list.get(childPosition);
-            holder.time.setText(model.getTime());
-            holder.content.setText(model.getContent());
+        RcBean rcBean = list.get(childPosition);
+            holder.time.setText(rcBean.getStartTime());
+            holder.content.setText(rcBean.getTitle());
 //        }else {
 //
 //        }

@@ -1,6 +1,7 @@
 package com.zucc.yxr31501359.Activity;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.zucc.yxr31501359.R;
+import com.zucc.yxr31501359.Util.DBHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private Toolbar toolbar;
     public static Context context ;
+    private DBHelper dbHelper;
+    public static SQLiteDatabase db;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -33,10 +37,7 @@ public class MainActivity extends AppCompatActivity {
                             .replace(R.id.content, rc_home).commit();
                     return true;
                 case R.id.jz:
-                    context = MainActivity.this;
-                    AddRcFragment fragment = new AddRcFragment();
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.content, fragment).commit();
+
 
                     return true;
                 case R.id.lc:
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         Rc_home rc_home = new Rc_home();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content, rc_home).commit();
+
+        dbHelper = new DBHelper(MainActivity.this);
+        db=dbHelper.getReadableDatabase();
+
     }
 
     @Override
@@ -82,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_add) {
+            context = MainActivity.this;
+            AddRcFragment fragment = new AddRcFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content, fragment).commit();
             Toast.makeText(this, "点击了添加", Toast.LENGTH_SHORT).show();
             return true;
         }

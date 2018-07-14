@@ -7,7 +7,7 @@ import com.zucc.yxr31501359.entity.Users;
 
 public class UserService {
 
-    public Users users_login;
+    public static int users_login;
     private SQLiteDatabase sdb;
     public UserService(SQLiteDatabase db){
         this.sdb=db;
@@ -19,10 +19,13 @@ public class UserService {
 
         String sql="select * from users where username=? and password=?";
         Cursor cursor=sdb.rawQuery(sql, new String[]{users.getUsername(),users.getPassword()});
+        users_login=1;
         if(cursor.moveToFirst()==true){
             while (cursor.moveToNext()) {
-                users_login.setUid(cursor.getInt(cursor.getColumnIndex("uid")));
-                users_login.setUsername(cursor.getString(cursor.getColumnIndex("username")));
+                Log.v("11", "进来了");
+               /* users_login.setUid(cursor.getInt(cursor.getColumnIndex("uid")));
+
+                users_login.setUsername(cursor.getString(cursor.getColumnIndex("username")));*/
             }
             cursor.close();
             return "login successful";

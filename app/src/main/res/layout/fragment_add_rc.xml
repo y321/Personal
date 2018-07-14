@@ -15,14 +15,16 @@
                 android:inputType="textPersonName"
                 android:hint="标题"
                 android:textSize="20dp"
+                android:theme="@style/MyEditText"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:id="@+id/title"
+                android:padding="15dp"
                 android:layout_margin="5dp"/>
+
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/title"
-                        android:layout_margin="5dp"
                         android:id="@+id/place_Rel">
             <ImageButton
                     android:layout_width="30dp"
@@ -42,15 +44,16 @@
                     android:textSize="16dp"
                     android:ems="10"
                     android:id="@+id/place"
+                    android:theme="@style/MyEditText"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
                     android:layout_toRightOf="@id/place_btn"/>
         </RelativeLayout>
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/place_Rel"
                         android:id="@+id/time_Rel"
-                        android:layout_margin="5dp">
+                        >
             <ImageButton
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
@@ -70,7 +73,8 @@
                     android:ems="10"
                     android:id="@+id/Car"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:theme="@style/MyEditText"
                     android:layout_toRightOf="@id/time_btn"/>
             <EditText
                     android:layout_width="match_parent"
@@ -81,8 +85,9 @@
                     android:ems="10"
                     android:id="@+id/starttime"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
                     android:layout_below="@id/Car"
+                    android:theme="@style/MyEditText"
                     android:layout_toEndOf="@+id/time_btn"/>
             <EditText
                     android:layout_width="match_parent"
@@ -93,13 +98,106 @@
                     android:ems="10"
                     android:id="@+id/endtime"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
                     android:layout_below="@id/starttime"
+                    android:theme="@style/MyEditText"
                     android:layout_alignStart="@+id/starttime"/>
 
         </RelativeLayout>
 
+        <RelativeLayout android:layout_width="match_parent"
+                                                 android:layout_height="wrap_content"
+                                                 android:layout_below="@+id/time_Rel"
+                                                 android:id="@+id/repeat_Rel">
+        <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/repeatt"
+                android:background="@color/white"
+                android:layout_marginRight="15dp"
+                android:id="@+id/repeat_btn"
+                android:layout_weight="1"
+                android:layout_alignBottom="@+id/repeat"
+                android:layout_alignParentTop="true"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="重复"
+                android:textSize="16dp"
+                android:ems="10"
+                android:id="@+id/repeat"
+                android:theme="@style/MyEditText"
+                android:layout_marginRight="15dp"
+                android:padding="15dp"
+                android:layout_toRightOf="@id/repeat_btn"/>
+    </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                                         android:layout_height="wrap_content"
+                                         android:layout_below="@+id/repeat_Rel"
+                                         android:id="@+id/remand_Rel">
+        <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/remandd"
+                android:background="@color/white"
+                android:layout_marginRight="15dp"
+                android:id="@+id/remand_btn"
+                android:layout_weight="1"
+                android:theme="@style/MyEditText"
+                android:layout_alignBottom="@+id/remand"
+                android:layout_alignParentTop="true"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="提醒"
+                android:textSize="16dp"
+                android:ems="10"
+                android:id="@+id/remand"
+                android:layout_marginRight="15dp"
+                android:padding="15dp"
+                android:theme="@style/MyEditText"
+                android:layout_toRightOf="@id/remand_btn"/>
+    </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/remand_Rel"
+                        android:id="@+id/content_Rel">
+            <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/xq"
+                    android:background="@color/white"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/content_btn"
+                    android:layout_weight="1"
+                    android:theme="@style/MyEditText"
+                    android:layout_alignBottom="@+id/content"
+                    android:layout_alignParentTop="true"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:hint="详情"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/content"
+                    android:layout_marginRight="15dp"
+                    android:padding="15dp"
+                    android:theme="@style/MyEditText"
+                    android:layout_toRightOf="@id/content_btn"/>
 
-
+        </RelativeLayout>
+        <Button
+                android:text="添加"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/addbtn"
+                android:textColor="@color/black"
+                android:background="#eeeeee"
+                android:layout_below="@+id/content_Rel"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
     </RelativeLayout>
 </FrameLayout>

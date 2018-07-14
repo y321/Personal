@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import com.zucc.yxr31501359.DBService.RcService;
+import com.zucc.yxr31501359.DBService.UserService;
 import com.zucc.yxr31501359.R;
 import com.zucc.yxr31501359.calendar.CalendarView;
 import com.zucc.yxr31501359.calendar.ChildModel;
 import com.zucc.yxr31501359.calendar.ContactsInfoAdapter;
+import com.zucc.yxr31501359.entity.RcBean;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,7 +36,7 @@ public class Rc_home extends Fragment {
     private SimpleDateFormat format;
     private ExpandableListView mListView;
     private List<String> group;           //组列表
-    private List<List<ChildModel>> child;     //子列表
+    private List<List<RcBean>> child;     //子列表
     private ContactsInfoAdapter adapter;  //数据适配器
     private List<Integer> spotList;
 //    private Context c ;
@@ -49,7 +52,7 @@ public class Rc_home extends Fragment {
 
         spotList = new ArrayList<Integer>();
         group = new ArrayList<String>();
-        child = new ArrayList<List<ChildModel>>();
+        child = new ArrayList<List<RcBean>>();
         format = new SimpleDateFormat("yyyy-MM-dd");
         //获取日历控件对象
         calendar = (CalendarView)view.findViewById(R.id.calendar);
@@ -73,9 +76,9 @@ public class Rc_home extends Fragment {
         child.clear();
         int maxDayNum = calendar.getMaxDayNum();    //当前月份总天数
         for (int i = 1; i <= maxDayNum; i++) {
-            List<ChildModel> childitem = getChildModels(i);
+            List<RcBean> rcBeans = getRcbeans(i);
             group.add(i + "");    //日期
-            child.add(childitem);
+            child.add(rcBeans);
         }
         //设置默认全部打开
         for (int i = 0; i < group.size(); i++) {
@@ -110,21 +113,12 @@ public class Rc_home extends Fragment {
      * @param i
      * @return
      */
-    private List<ChildModel> getChildModels(int i) {
-        List<ChildModel> childitem = new ArrayList<ChildModel>();
-        ChildModel model;
-        for (int j = 0; j < 3; j++) {
-            model = new ChildModel();
-            model.setId(i + "");
-            model.setTime("17：30");
-            model.setContent("假装这里有内容" + j);
-            childitem.add(model);
-        }
-        //在末尾加入新建日程条目
-        model = new ChildModel();
-        model.setContent("新建日程");
-        childitem.add(model);
-        return childitem;
+    private List<RcBean> getRcbeans(int i) {
+        List<RcBean> rcBeans = new ArrayList<RcBean>();
+        RcBean rcBean;
+        RcService rcService = new RcService(MainActivity.db);
+        rcBeans=rcService.AllRc(UserService.users_login);
+        return rcBeans;
     }
 
 

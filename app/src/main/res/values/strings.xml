@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">PersonalA</string>
-    <string name="rc">rc</string>
-    <string name="jz">jz</string>
-    <string name="lc">lc</string>
-    <string name="grzx">grzx</string>
+    <string name="rc">日程</string>
+    <string name="jz">记账</string>
+    <string name="lc">理财</string>
+    <string name="grzx">我</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
