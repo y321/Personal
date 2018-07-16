@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import com.zucc.yxr31501359.DBService.RcService;
+import com.zucc.yxr31501359.DBService.Time;
 import com.zucc.yxr31501359.DBService.UserService;
 import com.zucc.yxr31501359.R;
 import com.zucc.yxr31501359.entity.RcBean;
@@ -48,6 +49,9 @@ public class AddRcFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_rc, container, false);
 
+
+
+
         time = new StringBuffer();
         stEditText = (EditText) view.findViewById(R.id.starttime);
         etEditText = (EditText) view.findViewById(R.id.endtime);
@@ -63,7 +67,9 @@ public class AddRcFragment extends Fragment {
         contentET= (EditText) view.findViewById(R.id.remand);
         addbtn= (Button) view.findViewById(R.id.addbtn);
 
-
+        Bundle bundle = getArguments();
+        String string = bundle.getString("cd");
+        dataET.setText(string);
 
 
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -87,10 +93,6 @@ public class AddRcFragment extends Fragment {
                             .beginTransaction()
                             .addToBackStack(null)  //将当前fragment加入到返回栈中
                             .replace(R.id.content, new Rc_home()).commit();
-
-
-
-
 
             }
         });
@@ -170,7 +172,7 @@ public class AddRcFragment extends Fragment {
         DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.context, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                AddRcFragment.this.dEditText.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                AddRcFragment.this.dEditText.setText(year + "-" + Time.toAddZero(monthOfYear)  + "-" + Time.toAddZero(dayOfMonth));
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
@@ -195,13 +197,14 @@ public class AddRcFragment extends Fragment {
         TimePickerDialog timePickerDialog = new TimePickerDialog(MainActivity.context, new TimePickerDialog.OnTimeSetListener(){
             @Override
             public void onTimeSet(TimePicker view, int hour, int minute) {
-                AddRcFragment.this.etEditText.setText(hour + ":" + minute );
+                AddRcFragment.this.etEditText.setText(Time.toAddZero(hour) + ":" +Time.toAddZero( minute ));
             }
         }, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),true);
         timePickerDialog.show();
 
 
     }
+
 
 
 

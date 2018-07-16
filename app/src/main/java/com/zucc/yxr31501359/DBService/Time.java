@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 		 public  String getCurrentTime(){
 			 
 			 Date currentTime = new Date();  
-		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
+		        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		        String dateString = formatter.format(currentTime);  
 		        return dateString;  
 		    }  
@@ -49,6 +49,13 @@ import java.text.SimpleDateFormat;
 			System.out.println(tc.toDate("2008-01-01 01:00:00"));
 	    	
 	    }
+	    public static String toAddZero(int n){
+			String s=Integer.toString(n);
+		 	if(s.length()==1){
+		 		s="0"+n;
+			}
+		 	return s;
+		}
 	  
 	}  
 	

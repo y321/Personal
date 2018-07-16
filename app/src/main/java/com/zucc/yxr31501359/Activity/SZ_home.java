@@ -22,17 +22,6 @@ import java.util.List;
 
 public class SZ_home extends Fragment {
 
-    private EditText dEditText;
-    private int  hour, minute;
-    private StringBuffer  time;
-    /*private LinearLayout  llTime;*/
-    private EditText stEditText,etEditText;
-    private Button addbtn;
-    private SQLiteDatabase db;
-
-
-
-    private EditText titleET,placeET,dataET,starttimeET,endtimeET,repeatET,remandET,contentET;
     private List<SZBean> szBeans = new ArrayList<SZBean>();
 
 
@@ -44,7 +33,6 @@ public class SZ_home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         initSZ();
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sz, container, false);
         SZAdapter szAdapter = new SZAdapter(MainActivity.context, R.layout.sz_item_frag, szBeans);
         ListView listView = (ListView)view.findViewById(R.id.sz_list);

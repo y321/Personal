@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.zucc.yxr31501359.R;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         db=dbHelper.getReadableDatabase();
 
 
+
     }
 
     @Override
@@ -92,14 +94,15 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if (id == R.id.action_add) {
+        /*if (id == R.id.action_add) {
             context = MainActivity.this;
-            AddSZFragment fragment = new AddSZFragment();
+            *//*AddSZFragment fragment = new AddSZFragment();*//*
+            AddRcFragment fragment = new AddRcFragment();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content, fragment).commit();
             Toast.makeText(this, "点击了添加", Toast.LENGTH_SHORT).show();
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
