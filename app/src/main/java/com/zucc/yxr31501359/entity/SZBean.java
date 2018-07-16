@@ -9,7 +9,7 @@ public class SZBean {
     public String remarks;
     public String status;
     public String del;
-    public String uid;
+    public int uid;
 
     public int getSzid() {
         return szid;
@@ -75,11 +75,11 @@ public class SZBean {
         this.del = del;
     }
 
-    public String getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 }

@@ -24,22 +24,23 @@ public class SZService {
         sdb.execSQL(sql, obj);
         return "添加成功";
     }
-    /*删除日程*/
+    /*删除收支*/
     public String  DeleteRc(RcBean rcBean){
         String sql="";
         Object obj[]={};
         sdb.execSQL(sql, obj);
         return "删除成功";
     }
-    /*遍历日程*/
+    /*遍历收支*/
     public ArrayList<SZBean> AllRc(int Uid){
         ArrayList<SZBean> sz = new ArrayList<>();
         String sql="select * from sz where UID=? and del='0'";
         Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
         int i = 0;
         while (c.moveToNext()) {
+            Log.v("hahaha",c.getString(c.getColumnIndex("title")));
             SZBean szBean = new SZBean();
-            szBean.setSzid(c.getInt(c.getColumnIndex("rcid")));
+            szBean.setSzid(c.getInt(c.getColumnIndex("szid")));
             szBean.setTitle(c.getString(c.getColumnIndex("title")));
             szBean.setDatam(c.getString(c.getColumnIndex("datam")));
             szBean.setSz(c.getString(c.getColumnIndex("sz")));

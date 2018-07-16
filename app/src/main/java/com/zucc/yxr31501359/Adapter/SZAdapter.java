@@ -1,4 +1,4 @@
-package com.zucc.yxr31501359.calendar;
+package com.zucc.yxr31501359.Adapter;
 
 
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.zucc.yxr31501359.R;
 import com.zucc.yxr31501359.entity.SZBean;

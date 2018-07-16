@@ -12,9 +12,8 @@ import android.widget.TextView;
 import com.zucc.yxr31501359.DBService.RcService;
 import com.zucc.yxr31501359.DBService.UserService;
 import com.zucc.yxr31501359.R;
-import com.zucc.yxr31501359.calendar.CalendarView;
-import com.zucc.yxr31501359.calendar.ChildModel;
-import com.zucc.yxr31501359.calendar.ContactsInfoAdapter;
+import com.zucc.yxr31501359.Adapter.CalendarView;
+import com.zucc.yxr31501359.Adapter.ContactsInfoAdapter;
 import com.zucc.yxr31501359.entity.RcBean;
 
 import java.text.ParseException;

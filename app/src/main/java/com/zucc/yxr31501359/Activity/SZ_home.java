@@ -7,20 +7,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.ListView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.zucc.yxr31501359.DBService.RcService;
 import com.zucc.yxr31501359.DBService.SZService;
 import com.zucc.yxr31501359.DBService.UserService;
 import com.zucc.yxr31501359.R;
-import com.zucc.yxr31501359.calendar.SZAdapter;
-import com.zucc.yxr31501359.entity.RcBean;
+import com.zucc.yxr31501359.Adapter.SZAdapter;
 import com.zucc.yxr31501359.entity.SZBean;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 
