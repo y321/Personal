@@ -78,7 +78,22 @@ public class Rc_home extends Fragment  {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                RcBean item=(RcBean)rcBeans.get(position);
+                RcBean rcBean=(RcBean)rcBeans.get(position);
+
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("rcBean",rcBean);
+
+                RcxqFragment rcxqFragment = new RcxqFragment();
+                rcxqFragment.setArguments(bundle);
+
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+
+                transaction.addToBackStack(null);
+                transaction.add(R.id.content,rcxqFragment);
+                transaction.hide(Rc_home.this);
+                transaction.commit();
 
             }
         });

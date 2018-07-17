@@ -1,8 +1,9 @@
 package com.zucc.yxr31501359.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class RcBean {
+public class RcBean implements Serializable {
     int rcid ;
     String title ;
     String place ;

@@ -25,150 +25,118 @@
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/title"
-                        android:id="@+id/place_Rel">
+                        android:id="@+id/datam_Rel">
             <ImageButton
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/place"
+                    app:srcCompat="@drawable/datam"
                     android:background="@color/white"
                     android:layout_marginRight="15dp"
-                    android:id="@+id/place_btn"
+                    android:id="@+id/datam_btn"
                     android:layout_weight="1"
-                    android:layout_alignBottom="@+id/place"
+                    android:layout_alignBottom="@+id/datam"
                     android:layout_alignParentTop="true"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:hint="地点"
+                    android:hint="月份"
                     android:textSize="16dp"
                     android:ems="10"
-                    android:id="@+id/place"
+                    android:id="@+id/datam"
                     android:theme="@style/MyEditText"
                     android:layout_marginRight="15dp"
                     android:padding="15dp"
-                    android:layout_toRightOf="@id/place_btn"/>
+                    android:layout_toRightOf="@id/datam_btn"/>
         </RelativeLayout>
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/place_Rel"
-                        android:id="@+id/time_Rel"
-                        >
+                        android:layout_below="@id/datam_Rel"
+                        android:id="@+id/sz_Rel"
+        >
             <ImageButton
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/time"
+                    app:srcCompat="@drawable/sz"
                     android:background="@color/white"
-                    android:id="@+id/time_btn"
+                    android:id="@+id/sz_btn"
                     android:layout_weight="1"
                     android:layout_marginRight="15dp"
-                    android:layout_alignBottom="@+id/Car"
+                    android:layout_alignBottom="@+id/sz"
+                    android:layout_alignParentTop="true"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:entries="@array/sz"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/sz"
+                    android:layout_marginRight="15dp"
+                    android:padding="15dp"
+                    android:theme="@style/MyEditText"
+                    android:layout_toRightOf="@id/sz_btn"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sz_Rel"
+                        android:id="@+id/status_Rel">
+            <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/type"
+                    android:background="@color/white"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/status_btn"
+                    android:layout_weight="1"
+                    android:theme="@style/MyEditText"
+                    android:layout_alignBottom="@+id/status"
+                    android:layout_alignParentTop="true"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textSize="16dp"
+                    android:ems="10"
+                    android:id="@+id/status"
+                    android:layout_marginRight="15dp"
+                    android:padding="15dp"
+                    android:theme="@style/MyEditText"
+                    android:layout_toRightOf="@id/status_btn"/>
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/status_Rel"
+                        android:id="@+id/money_Rel">
+            <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/money"
+                    android:background="@color/white"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/money_btn"
+                    android:layout_weight="1"
+                    android:layout_alignBottom="@+id/money"
                     android:layout_alignParentTop="true"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:hint="日期"
+                    android:text="0.00"
                     android:textSize="16dp"
                     android:ems="10"
-                    android:id="@+id/Car"
+                    android:id="@+id/money"
+                    android:theme="@style/MyEditText"
                     android:layout_marginRight="15dp"
                     android:padding="15dp"
-                    android:theme="@style/MyEditText"
-                    android:layout_toRightOf="@id/time_btn"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="开始时间"
-                    android:textSize="16dp"
-                    android:ems="10"
-                    android:id="@+id/starttime"
-                    android:layout_marginRight="15dp"
-                    android:padding="15dp"
-                    android:layout_below="@id/Car"
-                    android:theme="@style/MyEditText"
-                    android:layout_toEndOf="@+id/time_btn"/>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:hint="结束时间"
-                    android:textSize="16dp"
-                    android:ems="10"
-                    android:id="@+id/endtime"
-                    android:layout_marginRight="15dp"
-                    android:padding="15dp"
-                    android:layout_below="@id/starttime"
-                    android:theme="@style/MyEditText"
-                    android:layout_alignStart="@+id/starttime"/>
-
+                    android:layout_toRightOf="@id/money_btn"/>
         </RelativeLayout>
-
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/time_Rel"
-                android:id="@+id/repeat_Rel">
-        <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/zy"
-                android:background="@color/white"
-                android:layout_marginRight="15dp"
-                android:id="@+id/repeat_btn"
-                android:layout_weight="1"
-                android:layout_alignTop="@+id/status"
-                android:layout_alignParentStart="true"
-                android:layout_alignBottom="@+id/status"/>
-        <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="重要程度"
-                android:textSize="16dp"
-                android:ems="10"
-                android:layout_centerVertical="true"
-                android:id="@+id/status"
-                android:theme="@style/MyEditText"
-                android:layout_marginRight="15dp"
-                android:padding="15dp"
-                android:layout_toRightOf="@id/repeat_btn"/>
-    </RelativeLayout>
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/repeat_Rel"
-                android:id="@+id/remand_Rel">
-        <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/remandd"
-                android:background="@color/white"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:id="@+id/remand_btn"
-                android:layout_weight="1"
-                android:theme="@style/MyEditText"
-                android:layout_alignBottom="@+id/remand"
-                android:layout_alignParentTop="true"/>
-        <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="提醒"
-                android:textSize="16dp"
-                android:layout_centerVertical="true"
-                android:ems="10"
-                android:id="@+id/remand"
-                android:layout_marginRight="15dp"
-                android:padding="15dp"
-                android:theme="@style/MyEditText"
-                android:layout_toRightOf="@id/remand_btn"/>
-    </RelativeLayout>
         <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/remand_Rel"
+                        android:layout_below="@+id/money_Rel"
                         android:id="@+id/content_Rel">
             <ImageButton
                     android:layout_width="30dp"
@@ -195,15 +163,34 @@
                     android:layout_toRightOf="@id/content_btn"/>
 
         </RelativeLayout>
-        <Button
-                android:text="添加"
+        <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/addbtn"
-                android:textColor="@color/black"
-                android:background="#eeeeee"
-                android:layout_below="@+id/content_Rel"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="100dp"
+                android:layout_below="@+id/content_Rel">
+
+
+            <Button
+                    android:text="修改"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/updatabtn"
+                    android:textColor="@color/black"
+                    android:background="#eeeeee"
+                    android:layout_centerVertical="true"
+            />
+            <Button
+                    android:text="删除"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deletebtn"
+                    android:textColor="@color/black"
+                    android:background="#eeeeee"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@id/updatabtn"
+                    android:layout_marginTop="20dp"/>
+        </RelativeLayout>
     </RelativeLayout>
 </FrameLayout>

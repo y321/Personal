@@ -3,12 +3,74 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-            android:id="@+id/sz_title"
-            android:layout_width="wrap_content"
+
+    <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dip" />
+            android:layout_marginBottom="5dp">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Isz"
+                android:src="@drawable/sr_icon"/>
+        <TextView
+                android:id="@+id/sz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:textColor="#222222"
+                android:text="收支"
+                android:layout_toRightOf="@id/Isz"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+        <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:textColor="#222222"
+                android:text="0.00"
+                android:layout_toRightOf="@id/sz"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+        <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:textColor="#222222"
+                android:text="类别"
+                android:layout_marginLeft="80dp" android:layout_above="@+id/relativeLayout"
+                android:layout_alignEnd="@+id/relativeLayout" android:layout_marginEnd="61dp"/>
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sz"
+                android:layout_marginTop="5dp" android:id="@+id/relativeLayout">
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="18dp"
+                    android:text="标题"
+                    android:layout_marginLeft="42dip"/>
+            <TextView
+                    android:id="@+id/datam"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/title"
+                    android:textSize="18dp"
+                    android:text="时间"
+                    android:layout_marginLeft="10dip"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

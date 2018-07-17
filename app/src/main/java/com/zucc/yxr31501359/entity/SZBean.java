@@ -1,6 +1,8 @@
 package com.zucc.yxr31501359.entity;
 
-public class SZBean {
+import java.io.Serializable;
+
+public class SZBean implements Serializable {
     public int szid ;
     public String title ;
     public String datam;

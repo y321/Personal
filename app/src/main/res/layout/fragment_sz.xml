@@ -11,13 +11,13 @@
             android:layout_height="190dp"
             android:visibility="visible"
             android:elevation="4dp"
-            android:background="@color/white">
+            android:background="@drawable/bg7">
         <RelativeLayout
                 android:id="@+id/Income_cal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
-                android:background="@color/white"
+                android:background="@null"
                 android:layout_marginTop="20dp"
         >
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
-                android:background="@color/white"
+                android:background="@null"
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/Income_cal">
             <TextView
@@ -74,7 +74,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
-                android:background="@color/white"
+                android:background="@null"
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/Ouput_cal">
             <TextView
@@ -86,7 +86,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_centerVertical="true"/>
             <EditText
-                    android:text="00.00"
+                    android:text="选择月份"
                     android:textSize="18dp"
                     android:layout_marginLeft="50dp"
                     android:layout_width="wrap_content"
@@ -96,6 +96,14 @@
                     android:layout_alignParentTop="true"
                     android:layout_toEndOf="@+id/Data"
                     android:layout_marginStart="81dp"/>
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search"
+                    android:layout_marginLeft="80dp"
+                    android:id="@+id/search"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/Data_m"/>
 
 
         </RelativeLayout>

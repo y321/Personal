@@ -23,4 +23,9 @@
     <string name="text_loginbutton">登录</string>
     <string name="text_regbutton">注册</string>
     <string name="textreg_pwd">确认密码</string>
+
+    <string-array name="sz">
+        <item>收入</item>
+        <item>支出</item>
+    </string-array>
 </resources>

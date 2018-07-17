@@ -25,17 +25,24 @@ public class SZService {
         return "添加成功";
     }
     /*删除收支*/
-    public String  DeleteRc(RcBean rcBean){
-        String sql="";
-        Object obj[]={};
+    public String  DeleteSz(int szid){
+        String sql="update sz set del='1' where szid = ?";
+        Object obj[]={szid};
+        sdb.execSQL(sql, obj);
+        return "删除成功";
+    }
+    /*删除收支*/
+    public String  updateSz(SZBean szBean){
+        String sql="update sz set title=? ,datam=? ,sz=? , money=? ,remarks=? ,status=? where szid = ?";
+        Object obj[]={szBean.getTitle(),szBean.getDatam(),szBean.getSz(),szBean.getMoney(),szBean.getRemarks(),szBean.getStatus(),szBean.getSzid()};
         sdb.execSQL(sql, obj);
         return "删除成功";
     }
     /*遍历收支*/
-    public ArrayList<SZBean> AllRc(int Uid){
+    public ArrayList<SZBean> AllSZ(int Uid ,String date){
         ArrayList<SZBean> sz = new ArrayList<>();
-        String sql="select * from sz where UID=? and del='0'";
-        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
+        String sql="select * from sz where UID=? and datam like ? and del='0'";
+        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid),date+"%"});
         int i = 0;
         while (c.moveToNext()) {
             Log.v("hahaha",c.getString(c.getColumnIndex("title")));
@@ -54,29 +61,31 @@ public class SZService {
         c.close();
         return sz;
     }
-    /*根据时间查询*/
-    public ArrayList<RcBean> AllRcByST(int Uid,String startTime){
-        ArrayList<RcBean> rc = new ArrayList<>();
-        String sql="select * from rc where UID=? and startTime between '? 00:00:00' and '?' 23:59:59";
-        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
+    /*收入总和*/
+    public String srSum(int uid,String date){
+        String sql="select sum(money) from sz where UID=? and sz ='收入' and datam like ? and del='0'";
+        Object obj[]={uid,date+"%"};
+        String money="0.00";
+        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(uid),date+"%"});
         while (c.moveToNext()) {
-            RcBean rcBean = new RcBean();
-            rcBean.setRcid(c.getInt(c.getColumnIndex("rcid")));
-            rcBean.setTitle(c.getString(c.getColumnIndex("title")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("startTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("endTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("repeat")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("remindTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("remarks")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("status")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("del")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("uid")));
-            rc.add(rcBean);
+            money=c.getString(0);
         }
-        c.close();
-        return rc;
+        return money;
     }
+    /*支出总和*/
+    public String zcSum(int uid,String date){
+        String sql="select sum(money) from sz where UID=? and sz ='支出'and datam like ? and del='0'";
+        Object obj[]={uid,date+"%"};
+        String money="0.00";
+        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(uid),date+"%"});
+        while (c.moveToNext()) {
+            money=c.getString(0);
+        }
+        return money;
+    }
+    /*本月总和*/
 
-    /*修改日程*/
+
+
 
 }

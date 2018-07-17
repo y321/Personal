@@ -17,6 +17,7 @@ public class RcService {
 
     /*添加日程*/
     public String  addRc(RcBean rcBean){
+        Log.v("place",rcBean.getPlace());
         String sql="insert into rc(title,place,rcdata,startTime,endTime,repeat,remindTime,remarks,status,del,uid) values(?,?,?,?,?,?,?,?,?,?,?)";
         Object obj[]={rcBean.getTitle(),rcBean.getPlace(),rcBean.getRcdata(),rcBean.getStartTime(),rcBean.getEndTime(),rcBean.getRepeat(),rcBean.getRemindTime(),rcBean.getRemarks(),rcBean.getStatus(),"0",rcBean.getUid()};
         sdb.execSQL(sql, obj);
@@ -32,13 +33,15 @@ public class RcService {
     /*遍历日程*/
     public ArrayList<RcBean> AllRc(int Uid){
         ArrayList<RcBean> rc = new ArrayList<>();
-        String sql="select * from rc where UID=? ";
+        String sql="select * from rc where UID=? and del ='0' ";
         Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
         int i=0;
         while (c.moveToNext()) {
+
             RcBean rcBean = new RcBean();
             rcBean.setRcid(c.getInt(c.getColumnIndex("rcid")));
             rcBean.setTitle(c.getString(c.getColumnIndex("title")));
+            rcBean.setPlace(c.getString(c.getColumnIndex("place")));
             rcBean.setRcdata(c.getString(c.getColumnIndex("RCdata")));
             rcBean.setStartTime(c.getString(c.getColumnIndex("startTime")));
             rcBean.setEndTime(c.getString(c.getColumnIndex("endTime")));
@@ -82,5 +85,17 @@ public class RcService {
     }
 
     /*修改日程*/
-
+    public String  updateRC(RcBean rcBean){
+        String sql="update rc set title=?,place=?,rcdata=?,startTime=?,endTime=?,repeat=?,remindTime=?,remarks=?,status=? where rcid = ?";
+        Object obj[]={rcBean.getTitle(),rcBean.getPlace(),rcBean.getRcdata(),rcBean.getStartTime(),rcBean.getEndTime(),rcBean.getRepeat(),rcBean.getRemindTime(),rcBean.getRemarks(),rcBean.getStatus(),rcBean.getRcid()};
+        sdb.execSQL(sql, obj);
+        return "修改成功";
+    }
+    /*删除日程*/
+    public String  deleteRC(int rcid){
+        String sql="update rc set del= '1' where rcid = ?";
+        Object obj[]={rcid};
+        sdb.execSQL(sql, obj);
+        return "删除成功";
+    }
 }
