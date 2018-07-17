@@ -5,6 +5,8 @@ package com.zucc.yxr31501359.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.ListView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,7 @@ public class SZ_home extends Fragment {
 
     private List<SZBean> szBeans = new ArrayList<SZBean>();
 
-
+    private android.support.design.widget.FloatingActionButton addbtn;
 
 
 
@@ -37,6 +39,18 @@ public class SZ_home extends Fragment {
         SZAdapter szAdapter = new SZAdapter(MainActivity.context, R.layout.sz_item_frag, szBeans);
         ListView listView = (ListView)view.findViewById(R.id.sz_list);
         listView.setAdapter(szAdapter);
+
+        addbtn=(android.support.design.widget.FloatingActionButton) view.findViewById(R.id.add);
+        addbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager()
+                        .beginTransaction()
+                        .addToBackStack(null)  //将当前fragment加入到返回栈中
+                        .replace(R.id.content, new AddSZFragment()).commit();
+
+
+            }});
 
 
         return view;

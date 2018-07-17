@@ -119,7 +119,7 @@ public class AddSZFragment extends Fragment {
         DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.context, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                AddSZFragment.this.dEditText.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                AddSZFragment.this.datamET.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();

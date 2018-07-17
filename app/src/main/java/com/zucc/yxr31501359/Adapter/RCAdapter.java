@@ -2,6 +2,7 @@ package com.zucc.yxr31501359.Adapter;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,15 @@ public class RCAdapter extends ArrayAdapter{
         RcBean rcBean = (RcBean) getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
         TextView rcTV = (TextView) view.findViewById(R.id.rc_title);
+        TextView rc_date = (TextView) view.findViewById(R.id.rc_date);
+        TextView rc_stime = (TextView) view.findViewById(R.id.rc_stime);
+        TextView rc_etime = (TextView) view.findViewById(R.id.rc_etime);
+
         rcTV.setText(rcBean.getTitle());
+        rc_date.setText(rcBean.getRcdata());
+        rc_stime.setText(rcBean.getStartTime());
+        rc_etime.setText(rcBean.getEndTime());
+
         return view;
     }
 }

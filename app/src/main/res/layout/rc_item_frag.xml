@@ -3,12 +3,53 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-            android:id="@+id/rc_title"
+    <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dip" />
+            android:layout_marginBottom="5dp">
+        <TextView
+                android:id="@+id/rc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24dp"
+                android:text="标题"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rc_title"
+                android:layout_marginTop="5dp">
+            <TextView
+                    android:id="@+id/rc_date"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="18dp"
+                    android:text="日期"
+                    android:layout_marginLeft="10dip"/>
+            <TextView
+                    android:id="@+id/rc_stime"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/rc_date"
+                    android:textSize="18dp"
+                    android:text="开始时间"
+                    android:layout_marginLeft="10dip"/>
+            <TextView
+                    android:id="@+id/rc_etime"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/rc_stime"
+                    android:textSize="18dp"
+                    android:text="结束时间"
+                    android:layout_marginLeft="10dip"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

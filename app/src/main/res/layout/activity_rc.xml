@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
 
 
     <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elevation="4dp">
+            android:elevation="2dp"
+            android:background="@color/white">
         <CalendarView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,12 +32,15 @@
                 android:background="@color/white"
                 android:groupIndicator="@null"
                 android:drawSelectorOnTop="false"/>
-        <Button
-                android:layout_width="40dp"
+        <android.support.design.widget.FloatingActionButton
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginLeft="300dp"
-        />
+                android:layout_x="150dp"
+                android:layout_y="300dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:srcCompat="@drawable/add"/>
 
     </FrameLayout>
 

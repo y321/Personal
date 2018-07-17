@@ -32,27 +32,26 @@ public class RcService {
     /*遍历日程*/
     public ArrayList<RcBean> AllRc(int Uid){
         ArrayList<RcBean> rc = new ArrayList<>();
-        ArrayList<Integer> a = new ArrayList<>();
-
         String sql="select * from rc where UID=? ";
         Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
-        int i = 0;
+        int i=0;
         while (c.moveToNext()) {
             RcBean rcBean = new RcBean();
             rcBean.setRcid(c.getInt(c.getColumnIndex("rcid")));
             rcBean.setTitle(c.getString(c.getColumnIndex("title")));
+            rcBean.setRcdata(c.getString(c.getColumnIndex("RCdata")));
             rcBean.setStartTime(c.getString(c.getColumnIndex("startTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("endTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("repeat")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("remindTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("remarks")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("status")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("del")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("uid")));
-            rc.add(i,rcBean);
-            a.add(i,i);
+            rcBean.setEndTime(c.getString(c.getColumnIndex("endTime")));
+            rcBean.setRepeat(c.getString(c.getColumnIndex("repeat")));
+            rcBean.setRemindTime(c.getString(c.getColumnIndex("remindTime")));
+            rcBean.setRemarks(c.getString(c.getColumnIndex("remarks")));
+            rcBean.setStatus(c.getString(c.getColumnIndex("status")));
+            rcBean.setDel(c.getString(c.getColumnIndex("del")));
+            rcBean.setUid(c.getInt(c.getColumnIndex("uid")));
+            rc.add(rcBean);
 
-            /*Log.d("aa", rc.get(i).getTitle()+" "+a.get(i));*/
+
+            Log.d("aa", rc.get(i).getStartTime());
             i++;
         }
 
