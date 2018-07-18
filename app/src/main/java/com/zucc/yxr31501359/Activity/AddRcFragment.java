@@ -216,7 +216,7 @@ public class AddRcFragment extends Fragment {
         DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.context, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                AddRcFragment.this.dEditText.setText(year + "-" + Time.toAddZero(monthOfYear)  + "-" + Time.toAddZero(dayOfMonth));
+                AddRcFragment.this.dEditText.setText(year + "-" + Time.toAddZero(monthOfYear+1)  + "-" + Time.toAddZero(dayOfMonth));
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
@@ -229,7 +229,7 @@ public class AddRcFragment extends Fragment {
         TimePickerDialog timePickerDialog = new TimePickerDialog(MainActivity.context, new TimePickerDialog.OnTimeSetListener(){
             @Override
             public void onTimeSet(TimePicker view, int hour, int minute) {
-                AddRcFragment.this.stEditText.setText(hour + ":" + minute );
+                AddRcFragment.this.stEditText.setText(Time.toAddZero(hour) + ":" + Time.toAddZero(minute) );
             }
         }, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE),true);
         timePickerDialog.show();

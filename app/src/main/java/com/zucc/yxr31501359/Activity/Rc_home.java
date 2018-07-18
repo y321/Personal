@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import com.zucc.yxr31501359.Adapter.RCAdapter;
 import com.zucc.yxr31501359.DBService.RcService;
+import com.zucc.yxr31501359.DBService.Time;
 import com.zucc.yxr31501359.DBService.UserService;
 import com.zucc.yxr31501359.R;
 import com.zucc.yxr31501359.entity.RcBean;
@@ -28,7 +29,7 @@ public class Rc_home extends Fragment  {
     private CalendarView cv;
     private List<RcBean> rcBeans = new ArrayList<RcBean>();
     public  String cd;
-    private android.support.design.widget.FloatingActionButton addbtn;
+    private android.support.design.widget.FloatingActionButton addbtn,serach;
 
     private RCAdapter rcAdapter;
     private ListView listView ;
@@ -41,20 +42,29 @@ public class Rc_home extends Fragment  {
         rcAdapter = new RCAdapter(MainActivity.context, R.layout.rc_item_frag, rcBeans);
         listView = (ListView)view.findViewById(R.id.rc_list);
         addbtn=(android.support.design.widget.FloatingActionButton) view.findViewById(R.id.add);
-
+        serach=(android.support.design.widget.FloatingActionButton) view.findViewById(R.id.search);
 
         Calendar c = Calendar.getInstance();
-        cd=c.get(Calendar.YEAR)+"年"+(c.get(Calendar.MONDAY)+1)+"月"+c.get(Calendar.DAY_OF_MONTH)+"日";
+        cd=c.get(Calendar.YEAR)+"-"+ Time.toAddZero(c.get(Calendar.MONDAY)+1)+"-"+Time.toAddZero(c.get(Calendar.DAY_OF_MONTH));
 
         listView.setAdapter(rcAdapter);
         cv = (CalendarView) view.findViewById(R.id.data);
         cv.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
 
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                cd=year+"年"+(month+1)+"月"+dayOfMonth+"日";
-
+                cd=year+"-"+ Time.toAddZero(month+1)+"-"+ Time.toAddZero(dayOfMonth);
             }//met
         });
+
+        serach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RcService rcService = new RcService(MainActivity.db);
+                rcBeans.clear();
+                rcBeans=rcService.AllRcByData(UserService.users_login,cd);
+                rcAdapter = new RCAdapter(MainActivity.context, R.layout.rc_item_frag, rcBeans);
+                listView.setAdapter(rcAdapter);
+            }});
 
         Log.v("aaa",cd);
         addbtn.setOnClickListener(new View.OnClickListener() {

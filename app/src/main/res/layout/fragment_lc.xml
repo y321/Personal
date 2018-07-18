@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eeeeee">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:id="@+id/lc_Ral"
+                android:padding="20dp"
+                android:layout_height="wrap_content">
+            <RelativeLayout
+                    android:id="@+id/lx_Ral"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:background="@null"
+                    android:layout_marginTop="10dp">
+                <TextView
+                        android:text="利息（元）"
+                        android:textSize="16dp"
+                        android:textColor="#222222"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lx"
+                        android:layout_marginLeft="30dp"
+                        android:layout_centerVertical="true"/>
+                <TextView
+                        android:text="00.00"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toRightOf="@id/lx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lxtv"
+                />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:id="@+id/bx_Ral"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:background="@null"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/lx_Ral">
+                <TextView
+                        android:text="本息（元）"
+                        android:textSize="16dp"
+                        android:textColor="#222222"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bx"
+                        android:layout_marginLeft="30dp"
+                        android:layout_centerVertical="true"/>
+                <TextView
+                        android:text="00.00"
+                        android:textSize="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toRightOf="@id/bx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bxtv"
+                        android:layout_centerVertical="true"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+                android:text="请填写存款信息"
+                android:textSize="16dp"
+                android:textColor="#555555"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ts"
+                android:layout_below="@id/lc_Ral"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_centerVertical="true"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/lc_Ral"
+                android:background="@color/white"
+                android:id="@+id/cunk_Ral"
+                android:layout_height="50dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="存款金额"
+                    android:textSize="16dp"
+                    android:textColor="#222222"
+                    android:layout_marginLeft="15px"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+            <EditText
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cunk"
+                    android:textSize="16dp"
+                    android:inputType="numberDecimal"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="0.00"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/cunk_Ral"
+                android:background="@color/white"
+                android:id="@+id/leix_Ral"
+                android:layout_height="50dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="存款类型"
+                    android:textSize="16dp"
+                    android:textColor="#222222"
+                    android:layout_marginLeft="15px"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content" android:id="@+id/textView"/>
+
+                <RadioGroup
+                        android:id="@+id/type"
+                        android:layout_marginLeft="100dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_horizontal">
+                    <RadioButton
+                            android:id="@+id/hq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="活期" />
+                    <RadioButton
+                            android:id="@+id/dq"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="定期"/>
+                </RadioGroup>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/leix_Ral"
+                android:background="@color/white"
+                android:id="@+id/qix_Ral"
+                android:layout_height="50dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="存款期限"
+                    android:textSize="16dp"
+                    android:textColor="#222222"
+                    android:layout_marginLeft="15px"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+            <Spinner
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/qix"
+                    android:textSize="16dp"
+                    android:layout_centerVertical="true"
+                   />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/qix_Ral"
+                android:background="@color/white"
+                android:id="@+id/nlv_Ral"
+                android:layout_height="50dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="年利率"
+                    android:textSize="16dp"
+                    android:textColor="#222222"
+                    android:layout_marginLeft="15px"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+            <EditText
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nlv"
+                    android:inputType="numberDecimal"
+                    android:textSize="16dp"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="0.00"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/nlv_Ral"
+                android:background="@color/white"
+                android:id="@+id/lvb_Ral"
+                android:layout_height="50dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="查看利率表"
+                    android:textSize="16dp"
+                    android:textColor="#222222"
+                    android:layout_marginLeft="15px"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <Button
+                android:id="@+id/js"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/lvb_Ral"
+                android:background="@drawable/shape"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="计算"
+                android:textSize="20dp"
+                android:textColor="@color/colorlogin_text"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

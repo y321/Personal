@@ -42,15 +42,16 @@ public class RCAdapter extends ArrayAdapter{
         rc_date.setText(rcBean.getRcdata());
         rc_stime.setText(rcBean.getStartTime());
         rc_etime.setText(rcBean.getEndTime());
-
-        if(rcBean.getStatus().equals("重要")){
-            zy.setImageResource(R.drawable.y);
-        }else if(rcBean.getStatus().equals("非常重要")){
-            zy.setImageResource(R.drawable.r);
-        }else if(rcBean.getStatus().equals("不重要")){
-            zy.setImageResource(R.drawable.g);
-        }else{
-            zy.setImageResource(R.drawable.b);
+        if (rcBean.getStatus()!=null) {
+            if (rcBean.getStatus().equals("重要")) {
+                zy.setImageResource(R.drawable.y);
+            } else if (rcBean.getStatus().equals("非常重要")) {
+                zy.setImageResource(R.drawable.r);
+            } else if (rcBean.getStatus().equals("不重要")) {
+                zy.setImageResource(R.drawable.g);
+            } else {
+                zy.setImageResource(R.drawable.b);
+            }
         }
 
         return view;

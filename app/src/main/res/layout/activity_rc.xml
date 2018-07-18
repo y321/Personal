@@ -32,15 +32,29 @@
                 android:background="@color/white"
                 android:groupIndicator="@null"
                 android:drawSelectorOnTop="false"/>
-        <android.support.design.widget.FloatingActionButton
-                android:id="@+id/add"
+        <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_x="150dp"
-                android:layout_y="300dp"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/fab_margin"
-                app:srcCompat="@drawable/add"/>
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="50dp"
+                >
+            <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/fab_margin"
+                    app:srcCompat="@drawable/search1"/>
+            <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    app:srcCompat="@drawable/add"
+                    android:layout_below="@+id/search"
+                    android:layout_alignStart="@+id/search"/>
+        </RelativeLayout>
+
 
     </FrameLayout>
 

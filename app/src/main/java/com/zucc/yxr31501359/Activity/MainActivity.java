@@ -47,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.lc:
-                    mTextMessage.setText(R.string.lc);
+                    context = MainActivity.this;
+                    LC_home lc_home = new LC_home();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.content, lc_home).commit();
                     return true;
                 case R.id.grzx:
                     mTextMessage.setText(R.string.grzx);

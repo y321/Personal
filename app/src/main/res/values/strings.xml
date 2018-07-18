@@ -28,4 +28,14 @@
         <item>收入</item>
         <item>支出</item>
     </string-array>
+
+
+    <string-array name="qix">
+        <item>3个月</item>
+        <item>6个月</item>
+        <item>1年</item>
+        <item>2年</item>
+        <item>3年</item>
+        <item>5年</item>
+    </string-array>
 </resources>

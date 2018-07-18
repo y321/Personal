@@ -33,7 +33,7 @@ public class RcService {
     /*遍历日程*/
     public ArrayList<RcBean> AllRc(int Uid){
         ArrayList<RcBean> rc = new ArrayList<>();
-        String sql="select * from rc where UID=? and del ='0' ";
+        String sql="select * from rc where UID=? and del ='0'  order By RCdata";
         Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
         int i=0;
         while (c.moveToNext()) {
@@ -62,22 +62,25 @@ public class RcService {
         return rc;
     }
     /*根据时间查询*/
-    public ArrayList<RcBean> AllRcByST(int Uid,String startTime){
+    public ArrayList<RcBean> AllRcByData(int Uid,String data){
         ArrayList<RcBean> rc = new ArrayList<>();
-        String sql="select * from rc where UID=? and startTime between '? 00:00:00' and '?' 23:59:59";
-        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid)});
+        String sql="select * from rc where UID=? and RCdata like ? and del ='0' order By RCdata";
+        Cursor c=sdb.rawQuery(sql,new String[]{String.valueOf(Uid),data+"%"});
         while (c.moveToNext()) {
             RcBean rcBean = new RcBean();
             rcBean.setRcid(c.getInt(c.getColumnIndex("rcid")));
+            rcBean.setRcid(c.getInt(c.getColumnIndex("rcid")));
             rcBean.setTitle(c.getString(c.getColumnIndex("title")));
+            rcBean.setPlace(c.getString(c.getColumnIndex("place")));
+            rcBean.setRcdata(c.getString(c.getColumnIndex("RCdata")));
             rcBean.setStartTime(c.getString(c.getColumnIndex("startTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("endTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("repeat")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("remindTime")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("remarks")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("status")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("del")));
-            rcBean.setStartTime(c.getString(c.getColumnIndex("uid")));
+            rcBean.setEndTime(c.getString(c.getColumnIndex("endTime")));
+            rcBean.setRepeat(c.getString(c.getColumnIndex("repeat")));
+            rcBean.setRemindTime(c.getString(c.getColumnIndex("remindTime")));
+            rcBean.setRemarks(c.getString(c.getColumnIndex("remarks")));
+            rcBean.setStatus(c.getString(c.getColumnIndex("status")));
+            rcBean.setDel(c.getString(c.getColumnIndex("del")));
+            rcBean.setUid(c.getInt(c.getColumnIndex("uid")));
             rc.add(rcBean);
         }
         c.close();
