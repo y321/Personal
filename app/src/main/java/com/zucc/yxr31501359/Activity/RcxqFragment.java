@@ -34,7 +34,7 @@ public class RcxqFragment extends Fragment {
     private Spinner status,remand;
     private RcBean rcBean;
     private String statustr="",remandstr="";
-
+    private Button picture;
 
     private EditText titleET,placeET,contentET;
 
@@ -56,6 +56,8 @@ public class RcxqFragment extends Fragment {
         stEditText= (EditText) view.findViewById(R.id.starttime);
         etEditText= (EditText) view.findViewById(R.id.endtime);
 
+        picture = (Button)view.findViewById(R.id.picture);
+
         status = (Spinner) view.findViewById(R.id.status);
         remand= (Spinner) view.findViewById(R.id.remand);
         contentET= (EditText) view.findViewById(R.id.content);
@@ -72,6 +74,13 @@ public class RcxqFragment extends Fragment {
         contentET.setText(rcBean.getRemarks());
 
 
+        picture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
         updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,9 +2,13 @@ package com.zucc.yxr31501359.Activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +19,7 @@ import com.zucc.yxr31501359.DBService.RcService;
 import com.zucc.yxr31501359.DBService.Time;
 import com.zucc.yxr31501359.DBService.UserService;
 import com.zucc.yxr31501359.R;
+import com.zucc.yxr31501359.Util.LocationUtils;
 import com.zucc.yxr31501359.entity.RcBean;
 
 import java.util.ArrayList;
@@ -29,10 +34,11 @@ public class AddRcFragment extends Fragment {
     private StringBuffer  time;
     /*private LinearLayout  llTime;*/
     private EditText stEditText,etEditText;
-    private Button addbtn;
+    private Button addbtn,addPicture;
     private SQLiteDatabase db;
     private Spinner status,remand;
     private String statustr="",remandstr="";
+    private ImageView placeIV;
 
 
     private EditText titleET,placeET,dataET,starttimeET,endtimeET,repeatET,contentET;
@@ -54,7 +60,7 @@ public class AddRcFragment extends Fragment {
 
         time = new StringBuffer();
 
-
+        placeIV = (ImageView)view.findViewById(R.id.place_btn);
         titleET = (EditText) view.findViewById(R.id.title);
         placeET= (EditText) view.findViewById(R.id.place);
         dEditText= (EditText) view.findViewById(R.id.Car);
@@ -64,11 +70,34 @@ public class AddRcFragment extends Fragment {
         status = (Spinner) view.findViewById(R.id.status);
         remand= (Spinner) view.findViewById(R.id.remand);
         contentET= (EditText) view.findViewById(R.id.content);
+
         addbtn= (Button) view.findViewById(R.id.addbtn);
+        addPicture = (Button) view.findViewById(R.id.picture);
 
         Bundle bundle = getArguments();
         String string = bundle.getString("cd");
         dEditText.setText(string);
+
+        placeIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Location location = LocationUtils.getInstance( MainActivity.context ).showLocation();
+                if (location != null) {
+                    String address = "纬度：" + location.getLatitude() + "经度：" + location.getLongitude();
+                    Log.d( "FLY.LocationUtils", address );
+                    placeET.setText( address );
+                }
+
+
+            }
+        });
+        addPicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+             startActivity(new Intent(getActivity(), PictureActivity.class));
+            }
+        });
 
 
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -273,7 +302,10 @@ public class AddRcFragment extends Fragment {
     }
 
 
-
+    public void onDestroy() {
+        super.onDestroy();
+        LocationUtils.getInstance(MainActivity.context ).removeLocationUpdatesListener();
+    }
 
 
 }

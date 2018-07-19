@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 	  
 	public class Time {  
-	    /*ʱ��ȴ�С*/
+
 		 public  String getCurrentTime(){
 			 
 			 Date currentTime = new Date();  

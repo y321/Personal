@@ -1,5 +1,7 @@
 package com.zucc.yxr31501359.Activity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -23,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private Toolbar toolbar;
     public static Context context ;
+    public static Context activity ;
     private DBHelper dbHelper;
     public static SQLiteDatabase db;
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -71,16 +76,15 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
         context = MainActivity.this;
+        activity = MainActivity.this;
         Rc_home rc_home = new Rc_home();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content, rc_home).commit();
-
         dbHelper = new DBHelper(MainActivity.this);
         db=dbHelper.getReadableDatabase();
-
-
+/*闹钟*/
+        alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
     }
 
