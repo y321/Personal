@@ -13,9 +13,7 @@ import com.zucc.yxr31501359.entity.SZBean;
 
 import java.util.List;
 
-/**
- * Created by lw on 2017/4/14.
- */
+
 
 public class SZAdapter extends ArrayAdapter{
     private final int resourceId;

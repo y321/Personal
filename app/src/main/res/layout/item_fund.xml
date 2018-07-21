@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/code_Rel">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/code"
+                android:layout_marginLeft="20dp"
+                android:textSize="16dp"
+                android:text="基金代码"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:textSize="16dp"
+                android:layout_toRightOf="@id/code"
+                android:layout_marginLeft="20dp"
+                android:text="基金简称"/>
+
+
+    </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/netincome_Ral"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/code_Rel">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/netincome_t"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16dp"
+                    android:text="单位净收益（元）"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/netincome"
+                    android:textSize="16dp"
+                    android:layout_toRightOf="@id/netincome_t"
+                    android:layout_marginLeft="20dp"
+                    android:text="----"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/assincome_Rel"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/netincome_Ral">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/assincome_t"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16dp"
+                    android:text="单位可分配收益（元）"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/assincome"
+                    android:textSize="16dp"
+                    android:layout_toRightOf="@id/assincome_t"
+                    android:layout_marginLeft="20dp"
+                    android:text="----"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/netgrowrate_Rel"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/assincome_Rel">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/netgrowrate_t"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16dp"
+                    android:text="净值增长率(%)"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/netgrowrate"
+                    android:textSize="16dp"
+                    android:layout_toRightOf="@id/netgrowrate_t"
+                    android:layout_marginLeft="20dp"
+                    android:text="----"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tonetgrora_Rel"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/netgrowrate_Rel">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tonetgrorae_t"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16dp"
+                    android:text="累计净值增长率(%)"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tonetgrora"
+                    android:textSize="16dp"
+                    android:layout_toRightOf="@id/tonetgrorae_t"
+                    android:layout_marginLeft="20dp"
+                    android:text="----"/>tonetgrora
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

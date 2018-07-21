@@ -89,8 +89,8 @@ public class RcService {
 
     /*修改日程*/
     public String  updateRC(RcBean rcBean){
-        String sql="update rc set title=?,place=?,rcdata=?,startTime=?,endTime=?,repeat=?,remindTime=?,remarks=?,status=? where rcid = ?";
-        Object obj[]={rcBean.getTitle(),rcBean.getPlace(),rcBean.getRcdata(),rcBean.getStartTime(),rcBean.getEndTime(),rcBean.getRepeat(),rcBean.getRemindTime(),rcBean.getRemarks(),rcBean.getStatus(),rcBean.getRcid()};
+        String sql="update rc set title=?,place=?,rcdata=?,startTime=?,endTime=?,remindTime=?,remarks=?,status=? where rcid = ?";
+        Object obj[]={rcBean.getTitle(),rcBean.getPlace(),rcBean.getRcdata(),rcBean.getStartTime(),rcBean.getEndTime(),rcBean.getRemindTime(),rcBean.getRemarks(),rcBean.getStatus(),rcBean.getRcid()};
         sdb.execSQL(sql, obj);
         return "修改成功";
     }
@@ -100,5 +100,12 @@ public class RcService {
         Object obj[]={rcid};
         sdb.execSQL(sql, obj);
         return "删除成功";
+    }
+
+    public String  updatePicRC(RcBean rcBean){
+        String sql="update rc set repeat=? where rcid = ?";
+        Object obj[]={rcBean.getRepeat(),rcBean.getRcid()};
+        sdb.execSQL(sql, obj);
+        return "修改成功";
     }
 }

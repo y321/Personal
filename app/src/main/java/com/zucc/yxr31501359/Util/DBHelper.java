@@ -17,11 +17,10 @@ public class DBHelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
         String sql="create table users(Uid integer primary key autoincrement,username varchar(20),password varchar(20),age integer,sex varchar(2),del varchar(2),remarks varchar(2))";
         db.execSQL(sql);
-        sql="create table rc(rcid integer primary key autoincrement,title varchar(50),place varchar(100),RCdata varchar(50), startTime varchar(50),endTime varchar(50),repeat varchar(50),remindTime Data,remarks varchar(2),status varchar(10) ,del varchar(10),uid integer)";
+        sql="create table rc(rcid integer primary key autoincrement,title varchar(50),place varchar(100),RCdata varchar(50), startTime varchar(50),endTime varchar(50),repeat varchar(65532),remindTime Data,remarks varchar(2),status varchar(10),del varchar(10),uid integer)";
         db.execSQL(sql);
         sql="create table sz(szid integer primary key autoincrement,title varchar(50),datam varchar(100),sz varchar(10), money Double,remarks varchar(2),status varchar(10) ,del varchar(10),uid integer)";
         db.execSQL(sql);
-
     }
 
     @Override

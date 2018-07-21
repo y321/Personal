@@ -17,7 +17,7 @@
             android:title="@string/lc"/>
     <item
             android:id="@+id/grzx"
-            android:icon="@drawable/gr"
-            android:title="@string/grzx"/>
+            android:icon="@drawable/fund"
+            android:title="基金"/>
 
 </menu>
